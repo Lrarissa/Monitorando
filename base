@@ -1,0 +1,33 @@
+<!--
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <title>Monitorando</title>
+</head>
+<body>
+    <header>
+        <nav>
+        
+        </nav>
+    </header>
+
+    <main>
+        <section>
+
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+</body>
+</html>
+
+cor fundo: background: linear-gradient(90deg, #7F00FF 0%, #FF0080 100%)
+background: linear-gradient(90deg, #8000ffaf 0%, #ff0080b0 100%);" 
+-->
