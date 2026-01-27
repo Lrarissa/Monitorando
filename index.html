@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
-    <title>Monitorando para você</title>
+    <title>Meus Produtos</title>
 </head>
 <body>
-    <div class="conteiner">
-        <aside class="">
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <button class="btn-primary-add">
+                    <i class="fa-solid fa-plus"></i> Adicionar
+                </button>
+            </div>
 
             <nav>
                 <ul>
@@ -23,23 +28,46 @@
             </nav>
         </aside>
 
-        <main class="main-conteudo">
+        <main class="main-content">
+            
             <header>
-                <h2>Meus produtos</h2>
-                <div class="pesquisar">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Pesquisar produto...">
-                </div>
-                <div class="filters">
-                    <button><i class="fa-solid fa-arrow-up-wide-short"></i> Ordenar</button>
+                <h2>Meus Produtos</h2>
+                <div class="header-tools">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Pesquisar produtos...">
+                    </div>
+                    <div class="filters">
+                        <button><i class="fa-solid fa-filter"></i> Filtro</button>
+                        <button><i class="fa-solid fa-arrow-up-wide-short"></i> Ordenar</button>
+                    </div>
                 </div>
             </header>
+
+            <div class="products-grid" id="productsGrid">
+                
+                <div class="product-card empty-card">
+                    <div class="card-image-placeholder"></div>
+                    <div class="card-info">
+                        <button class="btn-card-add">Adicionar produto</button>
+                        <p class="meta-text">Meta: R$0.00,00</p>
+                    </div>
+                </div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div><div class="product-card empty-card">
+                <div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>          
+            </div>
         </main>
-
-        <footer>
-
-        </footer>
     </div>
-
+    
+    <script src="../JS/dashboard.js"></script>
 </body>
-</html> 
+</html>

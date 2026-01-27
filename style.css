@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #000; 
+    color: #fff;
+    height: 100vh;
+    overflow: hidden; 
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100%;
+}
+
+ /*Menu a esquerda*/
+
+.sidebar {
+    width: 250px;
+    background-color: #121212; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #333;
+}
+
+.btn-primary-add {
+    width: 100%;
+    background: linear-gradient(90deg, #a100ffff, #ff71ce);
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav ul li {
+    padding: 15px 10px;
+    cursor: pointer;
+    color: #aaa;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sidebar nav ul li:hover, .sidebar nav ul li.active {
+    background-color: #1f1f1f;
+    color: #fff;
+    border-radius: 8px;
+}
+
+/* --- menu fim --- */
+
+
+.main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.header-tools {
+    display: flex;
+    gap: 20px;
+}
+
+.search-box {
+    background-color: #1f1f1f;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    outline: none;
+}
+
+.filters button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+}
+
+.product-card {
+    background-color: #1f1f1f; 
+    border-radius: 5px; 
+    overflow: hidden;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 8px;
+}
+
+
+.card-image-placeholder {
+    background-color: #e0e0e0; 
+    height: 60%; 
+    width: 100%;
+}
+
+
+.card-info {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-card-add {
+    background: linear-gradient(90deg, #a100ffff, #ff71ce);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.meta-text {
+    font-size: 12px;
+    color: #ccc;
+}
