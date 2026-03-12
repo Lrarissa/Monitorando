@@ -66,3 +66,24 @@ body {
 }
 
 /* --- menu fim --- */
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<aside class="sidebar">
+    <div class="logo-area">
+        <button class="btn-primary-add">
+            <i class="fa-solid fa-plus"></i> Adicionar
+        </button>
+    </div>
+
+    <nav>
+        <ul>
+            <li class="active"><i class="fa-solid fa-cube"></i> Meus Produtos</li>
+            <li><i class="fa-regular fa-user"></i> Perfil</li>
+            <li><i class="fa-solid fa-chart-pie"></i> Visão Geral</li>
+            <li><i class="fa-regular fa-bell"></i> Alertas</li>
+            <li><i class="fa-solid fa-gear"></i> Ajustes</li>
+        </ul>
+    </nav>
+</aside>
