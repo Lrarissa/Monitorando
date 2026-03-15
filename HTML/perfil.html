@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/style-perfil.css">
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+    <title>Perfil | Monitorando</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="flex h-screen overflow-hidden">
+
+    <aside class="sidebar bg-[#121212] z-20">
+        <div class="logo-area">
+            <button class="btn-primary-add w-full bg-gradient-to-r from-[#A855F7] to-[#E83D84] text-white rounded-lg py-2 px-4 flex items-center justify-center gap-2 font-semibold hover:opacity-90 transition">
+                <i class="fa-solid fa-plus"></i> Adicionar
+            </button>
+        </div>
+
+        <nav>
+            <ul>
+                <li><i class="fa-solid fa-cube"></i> <a href="../index.html">Meus Produtos</a></li>
+                <li class="active"><i class="fa-regular fa-user"></i> <a href="perfil.html">Perfil</a></li>
+                <li><i class="fa-solid fa-chart-pie"></i> <a href="#">Visão Geral</a></li>
+                <li><i class="fa-regular fa-bell"></i> <a href="#">Alertas</a></li>
+                <li><i class="fa-solid fa-gear"></i> <a href="#">Ajustes</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto p-8 relative">
+        <div class="max-w-5xl mx-auto mt-16">
+
+            <!-- PAINEL SUPERIOR -->
+            <div class="bg-panel rounded-3xl p-8 relative mb-6 mt-12">
+
+                <!-- ÁREA DA FOTO -->
+                <div class="absolute -top-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                    <label for="upload-foto" class="borda-avatar cursor-pointer relative group">
+                        <img id="imagem-perfil"
+                             src="https://placehold.co/120x120/1a1a1a/ffffff?text=ME"
+                             alt="Fotografia de Perfil"
+                             class="w-28 h-28 rounded-full border-4 border-[#1A1A1A] object-cover transition duration-300 group-hover:brightness-50">
+
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                            <i data-lucide="camera" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </label>
+
+                    <input type="file" id="upload-foto" class="hidden" accept="image/*">
+                </div>
+
+                <!-- ÁREA DO NOME -->
+                <div class="text-center mt-12 mb-8 flex flex-col items-center">
+                    <div class="flex items-center justify-center gap-2 h-10">
+
+                        <h1 id="texto-nome" class="text-2xl font-semibold">S/N</h1>
+
+                        <input type="text"
+                               id="input-nome"
+                               value="S/N"
+                               class="hidden bg-[#262626] border border-[#A855F7] rounded px-3 py-1 text-white text-xl outline-none text-center w-48 focus:ring-2 focus:ring-[#E83D84] transition">
+
+                        <button id="btn-editar-nome"
+                                class="text-gray-400 hover:text-white transition"
+                                title="Editar nome">
+                            <i data-lucide="pencil" class="w-4 h-4"></i>
+                        </button>
+
+                        <button id="btn-salvar-nome"
+                                class="hidden text-green-400 hover:text-green-300 transition"
+                                title="Guardar nome">
+                            <i data-lucide="check" class="w-6 h-6"></i>
+                        </button>
+
+                    </div>
+
+                    <p class="text-gray-500 text-sm mt-1">
+                        Membro desde de Jan 2026
+                    </p>
+                </div>
+
+                <!-- CARDS ESTATÍSTICAS -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <div class="bg-stat-card rounded-2xl p-6 text-center border border-gray-800">
+                        <h3 class="text-neon-purple font-medium mb-4">Total economizado</h3>
+                        <input type="text"
+                               id="total-eco"
+                               value="R$ 1.540,00"
+                               class="w-full bg-transparent border-none outline-none text-center text-neon-pink text-3xl font-bold"
+                               readonly>
+                    </div>
+
+                    <div class="bg-stat-card rounded-2xl p-6 text-center border border-gray-800">
+                        <h3 class="text-neon-purple font-medium mb-4">Produtos monitorados</h3>
+                        <input type="text"
+                               id="produtos-mon"
+                               value="25"
+                               class="w-full bg-transparent border-none outline-none text-center text-neon-pink text-3xl font-bold"
+                               readonly>
+                    </div>
+
+                    <div class="bg-stat-card rounded-2xl p-6 text-center border border-gray-800">
+                        <h3 class="text-neon-purple font-medium mb-4">Alertas recebidos</h3>
+                        <input type="text"
+                               id="alertas-rec"
+                               value="20"
+                               class="w-full bg-transparent border-none outline-none text-center text-neon-pink text-3xl font-bold"
+                               readonly>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PAINEL INFERIOR -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- CONTA -->
+                <div class="bg-panel rounded-3xl p-6 flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-lg font-medium mb-4">Conta</h2>
+
+                        <label class="block text-sm text-gray-400 mb-2">
+                            E-mail:
+                        </label>
+
+                        <input type="email"
+                               value="aleatorio@gmail.com"
+                               readonly
+                               class="w-full bg-input border border-gray-700 rounded-lg px-4 py-2 text-sm text-gray-300 outline-none mb-4">
+                    </div>
+
+                    <button class="w-full bg-transparent border border-gray-600 hover:border-gray-400 text-gray-300 rounded-lg py-2 text-sm transition">
+                        <a href="#">Alterar senha</a>
+                    </button>
+                </div>
+
+                <!-- NOTIFICAÇÕES -->
+                <div class="bg-panel rounded-3xl p-6 flex flex-col justify-between">
+
+                    <h2 class="text-lg font-medium mb-6">
+                        Preferências de Notificação
+                    </h2>
+
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-300">E-mail</span>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <hr class="border-gray-800">
+
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-300">SMS</span>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <hr class="border-gray-800">
+
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-300">Resumo semanal</span>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PLANO -->
+                <div class="bg-panel rounded-3xl p-6 flex flex-col items-center justify-between relative overflow-hidden">
+                    <h2 class="text-sm text-gray-400 absolute top-6 left-6">
+                        Meu Plano
+                    </h2>
+
+                    <div class="flex flex-col items-center mt-6">
+                        <div class="text-neon-pink neon-glow mb-2 relative">
+                            <i data-lucide="crown" class="w-12 h-12"></i>
+                            <span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[10px] font-bold mt-1 text-white">
+                                PLUS
+                            </span>
+                        </div>
+
+                        <p class="text-xl">
+                            Você é <span class="text-neon-pink font-semibold">PLUS</span>
+                        </p>
+
+                        <p class="text-xs text-gray-500 mt-1">
+                            Monitoramento ilimitado ativo
+                        </p>
+                    </div>
+
+                    <button class="w-full bg-transparent border border-gray-600 hover:border-gray-400 text-gray-300 rounded-lg py-2 text-sm transition mt-6">
+                        Gerenciar assinatura
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        const toggles = document.querySelectorAll('.switch input');
+
+        toggles.forEach((toggle, index) => {
+            if (localStorage.getItem("notificacao" + index) === "on") {
+                toggle.checked = true;
+            }
+
+            toggle.addEventListener("change", () => {
+                if (toggle.checked) {
+                    localStorage.setItem("notificacao" + index, "on");
+                } else {
+                    localStorage.setItem("notificacao" + index, "off");
+                }
+            });
+        });
+
+        const inputUploadFoto = document.getElementById('upload-foto');
+        const imagemPerfil = document.getElementById('imagem-perfil');
+
+        inputUploadFoto.addEventListener('change', function(event) {
+            const arquivoSelecionado = event.target.files[0];
+
+            if (arquivoSelecionado) {
+                const leitor = new FileReader();
+
+                leitor.onload = function(e) {
+                    imagemPerfil.src = e.target.result;
+                }
+                leitor.readAsDataURL(arquivoSelecionado);
+            }
+        });
+
+        const textoNome = document.getElementById('texto-nome');
+        const inputNome = document.getElementById('input-nome');
+        const btnEditarNome = document.getElementById('btn-editar-nome');
+        const btnSalvarNome = document.getElementById('btn-salvar-nome');
+
+        function ativarEdicao() {
+            textoNome.classList.add('hidden');
+            inputNome.classList.remove('hidden');
+            btnEditarNome.classList.add('hidden');
+            btnSalvarNome.classList.remove('hidden');
+            
+            inputNome.value = textoNome.innerText;
+            inputNome.focus();
+        };
+
+        function salvarEdicao() {
+            const novoNomeDigitado = inputNome.value.trim();
+
+            if (novoNomeDigitado !== '') {
+                textoNome.innerText = novoNomeDigitado;
+            }
+
+            textoNome.classList.remove('hidden');
+            inputNome.classList.add('hidden');
+            btnEditarNome.classList.remove('hidden');
+            btnSalvarNome.classList.add('hidden');
+        }
+
+        btnEditarNome.addEventListener('click', ativarEdicao);
+        btnSalvarNome.addEventListener('click', salvarEdicao);
+
+        inputNome.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                salvarEdicao();
+            }
+        });
+    </script>
+</body>
+</html>

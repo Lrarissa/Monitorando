@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #000; 
+    color: #fff;
+    height: 100vh;
+    overflow: hidden; 
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100%;
+}
+
+ /*Menu a esquerda*/
+
+.sidebar {
+    width: 250px;
+    background-color: #121212; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #333;
+}
+
+.btn-primary-add {
+    width: 100%;
+    background: linear-gradient(90deg, #a100ffff, #ff71ce);
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav ul li {
+    padding: 15px 10px;
+    cursor: pointer;
+    color: #aaa;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sidebar nav ul li:hover, .sidebar nav ul li.active {
+    background-color: #1f1f1f;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- menu fim --- */
+
+/* Cores e Gradientes Personalizados */
+.bg-sidebar { background-color: #121212; }
+.bg-panel { background-color: #1A1A1A; }
+.bg-stat-card { background-color: #0A0514; }
+.bg-input { background-color: #262626; }
+
+.text-neon-pink { color: #E83D84; }
+.text-neon-purple { color: #A855F7; }
+
+.gradient-bg {
+    background: linear-gradient(to right, #A855F7, #E83D84);
+}
+
+.avatar-border {
+    background: linear-gradient(to right, #A855F7, #E83D84);
+    padding: 3px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Brilho neon para a coroa */
+.neon-glow {
+    filter: drop-shadow(0 0 8px rgba(250, 6, 108, 0.6));
+}
+
+.toggle-label {
+    background-color: #4B5563;
+    transition: all 0.3s ease;
+}
+
+/*Botão das notificações*/
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 21px;
+  width: 21px;
+  left: 1px;
+  bottom: -1px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background: linear-gradient(to right, #A855F7, #E83D84);
+  
+}
+
+input:checked + .slider::before {
+  transform: translateX(17px);
+}
+
+.borda-avatar {
+background: linear-gradient(to right, #A855F7, #E83D84);
+padding: 3px;
+border-radius: 50%;
+display: inline-block;
+}
+
+.neon-glow {
+filter: drop-shadow(0 0 8px rgba(232, 61, 132, 0.6));
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0;}
