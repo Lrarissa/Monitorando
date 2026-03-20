@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Meus Produtos</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Meus Produtos | Monitorando</title>
 </head>
 <body>
 
     <div class="dashboard-container">
         <aside class="sidebar">
             <div class="logo-area">
-                <button class="btn-primary-add">
+                <button class="btn-primary-add ad-pop">
                     <i class="fa-solid fa-plus"></i> Adicionar
                 </button>
             </div>
@@ -49,25 +52,127 @@
                 <div class="product-card empty-card">
                     <div class="card-image-placeholder"></div>
                     <div class="card-info">
-                        <button class="btn-card-add">Adicionar produto</button>
+                        <button class="btn-card-add ad-pop">Adicionar produto</button>
                         <p class="meta-text">Meta: R$0.00,00</p>
                     </div>
                 </div>
-                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
-                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
-                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
-                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
-                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
-                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
-                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div><div class="product-card empty-card">
-                <div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
-                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
-                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
-                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>          
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>          
             </div>
         </main>
     </div>
     
+<div id="modal-produto" class="modal-overlay hidden">
+        
+        <div class="modal-content">
+            
+            <button id="btn-fechar-modal" class="btn-fechar">
+                <i class="fa-solid fa-x"></i> </button>
+
+            <h2 class="modal-title">Adicionar Produto</h2>
+
+            <form id="form-adicionar-produto" class="modal-form">
+                
+                <div class="form-group">
+                    <label>Link do Produto (URL)</label>
+                    <input type="url" name="link_produto" placeholder="Cole o link aqui...">
+                </div>
+
+                <div class="form-group">
+                    <label>Nome do Produto</label>
+                    <input type="text" name="nome_produto" placeholder="Ex: iPhone 17 Pro Max">
+                </div>
+
+                <div class="form-group">
+                    <label for="valor">Preço Atual</label>
+                    <input type="text" id="valor" name="valor" placeholder="0,00" onkeyup="formatarMoeda(this)" />
+                </div>
+
+                <div class="form-group">
+                    <label for="valor">Sua Meta</label>
+                    <input type="text" id="valor" name="valor" placeholder="0,00" onkeyup="formatarMoeda(this)" />
+                </div>
+
+                <div class="form-group">
+                    <select name="categorias" class="categ">
+                        <option value="eletronicos">Eletrônicos</option>
+                        <option value="informatica">Informática</option>
+                        <option value="celulares">Celulares e Smartphones</option>
+                        <option value="eletrodomesticos">Eletrodomésticos</option>
+                        <option value="eletroportateis">Eletroportáteis</option>
+                        <option value="moveis">Móveis</option>
+                        <option value="decoracao">Decoração</option>
+                        <option value="cama_mesa_banho">Cama, Mesa e Banho</option>
+                        <option value="moda">Moda</option>
+                        <option value="calcados">Calçados</option>
+                        <option value="acessorios">Acessórios</option>
+                        <option value="beleza">Beleza e Cosméticos</option>
+                        <option value="saude">Saúde e Bem-estar</option>
+                        <option value="alimentos">Alimentos e Bebidas</option>
+                        <option value="esportes">Esportes e Fitness</option>
+                        <option value="lazer">Lazer e Entretenimento</option>
+                        <option value="brinquedos">Brinquedos e Jogos</option>
+                        <option value="livros">Livros</option>
+                        <option value="papelaria">Papelaria</option>
+                        <option value="automotivo">Automotivo</option>
+                        <option value="ferramentas">Ferramentas</option>
+                        <option value="construcao">Construção</option>
+                        <option value="petshop">Pet Shop</option>
+                        <option value="bebes">Bebês</option>
+                        <option value="games">Games</option>
+                        <option value="musica">Instrumentos Musicais</option>
+                        <option value="industria">Indústria e Comércio</option>
+                        <option value="servicos">Serviços</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-modal-enviar">
+                    Adicionar produto
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>
     <script src="../JS/dashboard.js"></script>
+
+    <script>
+            /*POP-UP ADICIONAR PRODUTO*/
+            lucide.createIcons();
+
+            const botoesAbrir = document.querySelectorAll('.ad-pop');
+            const modalProduto = document.getElementById('modal-produto');
+            const btnFecharModal = document.getElementById('btn-fechar-modal');
+
+            botoesAbrir.forEach(botao => {
+                botao.addEventListener('click', () => {
+                    modalProduto.classList.remove('hidden');
+                });
+            });
+
+            btnFecharModal.addEventListener('click', () => {
+                modalProduto.classList.add('hidden');
+            });
+
+            function formatarMoeda(i) {
+            var v = i.value.replace(/\D/g,'');
+            v = (v/100).toFixed(2) + '';
+            v = v.replace(".", ",");
+            v = v.replace(/(\d)(\d{3})(\d{3})/g, "$1.$2.$3");
+            v = v.replace(/(\d)(\d{3})/g, "$1.$2");
+            i.value = v;
+            }
+            
+    </script>
+
 </body>
 </html>
