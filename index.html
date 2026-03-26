@@ -65,46 +65,57 @@
                 <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
                 <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
                 <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
-                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>          
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
+                <div class="product-card empty-card"><div class="card-image-placeholder"></div><div class="card-info"><button class="btn-card-add ad-pop">Adicionar produto</button><p class="meta-text">Meta: R$0.00,00</p></div></div>
             </div>
         </main>
     </div>
     
 <div id="modal-produto" class="modal-overlay hidden">
-        
         <div class="modal-content">
-            
             <button id="btn-fechar-modal" class="btn-fechar">
-                <i class="fa-solid fa-x"></i> </button>
+                <i class="fa-solid fa-x"></i>
+            </button>
 
-            <h2 class="modal-title">Adicionar Produto</h2>
-
-            <form id="form-adicionar-produto" class="modal-form">
+            <div class="modal-duas-colunas">
                 
-                <div class="form-group">
-                    <label>Link do Produto (URL)</label>
-                    <input type="url" name="link_produto" placeholder="Cole o link aqui...">
-                </div>
+                <label class="modal-foto" for="upload-img">
+                    <i class="fa-solid fa-camera-retro"></i>
+                    <span class="txt-foto">Upload da foto do produto</span>
+                    <span class="txt-opcional">(Opcional)</span>
+                    <input type="file" id="upload-img" style="display: none;" accept="image/*">
+                </label>
 
+                <div class="modal-form-container">
+                    <h2 class="modal-title">Adicionar Produto</h2>
+                    
+                    <form id="form-adicionar-produto" class="modal-form">
+                        <div class="form-group">
+                            <label>Link do Produto (URL)</label>
+                            <input type="url" name="link_produto" placeholder="Cole o link aqui...">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Nome do Produto</label>
+                            <input type="text" name="nome_produto" placeholder="Ex: iPhone 17 Pro Max">
+                        </div>
+                        
+                        <div class="form-row-prices">
+                            <div class="form-group flex-1">
+                                <label>Preço Atual</label>
+                                <input type="text" id="preco" name="preco" placeholder="0,00" onkeyup="formatarMoeda(this)">
+                            </div>
+                            <div class="form-group flex-1">
+                                <label>Sua Meta</label>
+                                <input type="text" id="meta" name="meta" placeholder="0,00" onkeyup="formatarMoeda(this)">
+                            </div>
+                        </div>
                 <div class="form-group">
-                    <label>Nome do Produto</label>
-                    <input type="text" name="nome_produto" placeholder="Ex: iPhone 17 Pro Max">
-                </div>
-
-                <div class="form-group">
-                    <label for="valor">Preço Atual</label>
-                    <input type="text" id="valor" name="valor" placeholder="0,00" onkeyup="formatarMoeda(this)" />
-                </div>
-
-                <div class="form-group">
-                    <label for="valor">Sua Meta</label>
-                    <input type="text" id="valor" name="valor" placeholder="0,00" onkeyup="formatarMoeda(this)" />
-                </div>
-
-                <div class="form-group">
+                    <label for="categorias">Categoria do Produto</label>
                     <select name="categorias" class="categ">
                         <option value="eletronicos">Eletrônicos</option>
                         <option value="informatica">Informática</option>
+                        <option value="games">Games</option>                        
                         <option value="celulares">Celulares e Smartphones</option>
                         <option value="eletrodomesticos">Eletrodomésticos</option>
                         <option value="eletroportateis">Eletroportáteis</option>
@@ -124,15 +135,28 @@
                         <option value="papelaria">Papelaria</option>
                         <option value="automotivo">Automotivo</option>
                         <option value="ferramentas">Ferramentas</option>
-                        <option value="construcao">Construção</option>
                         <option value="petshop">Pet Shop</option>
                         <option value="bebes">Bebês</option>
-                        <option value="games">Games</option>
                         <option value="musica">Instrumentos Musicais</option>
                         <option value="industria">Indústria e Comércio</option>
                         <option value="servicos">Serviços</option>
                         <option value="outros">Outros</option>
                     </select>
+                </div>
+
+                 <div class="form-group">
+                    <label>Outras Opções</label>
+                    <br>
+                    <div class="opcoes-container">
+                        <div>
+                            <label style="width: 250px;" for="email">Notificar por E-mail</label>
+                            <input type="checkbox" name="email" id="email">
+                        </div>
+                        <div>
+                            <label style="width: 250px;" for="prioridade">Prioridade alta</label>
+                            <input type="checkbox" name="prioridade" id="prioridade">
+                        </div>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn-modal-enviar">
@@ -171,6 +195,26 @@
             v = v.replace(/(\d)(\d{3})/g, "$1.$2");
             i.value = v;
             }
+
+            const inputUploadImg = document.getElementById('upload-img');
+        const labelFoto = document.querySelector('.modal-foto');
+
+        inputUploadImg.addEventListener('change', function(e) {
+            if (e.target.files[0]) {
+                const leitor = new FileReader();
+                leitor.onload = function(evento) {
+                    labelFoto.style.backgroundImage = `url('${evento.target.result}')`;
+                    labelFoto.style.backgroundSize = 'cover';
+                    labelFoto.style.backgroundPosition = 'center';
+                    labelFoto.style.borderStyle = 'none';
+                    
+                    labelFoto.querySelector('i').style.display = 'none';
+                    labelFoto.querySelector('.txt-foto').style.display = 'none';
+                    labelFoto.querySelector('.txt-opcional').style.display = 'none';
+                }
+                leitor.readAsDataURL(e.target.files[0]);
+            }
+        });v
             
     </script>
 
