@@ -15,20 +15,44 @@
 <body class="flex h-screen overflow-hidden">
 
     <aside class="sidebar bg-[#121212] z-20">
-        <div class="logo-area">
-            <button class="btn-primary-add w-full bg-gradient-to-r from-[#A855F7] to-[#E83D84] text-white rounded-lg py-2 px-4 flex items-center justify-center gap-2 font-semibold hover:opacity-90 transition">
-                <i class="fa-solid fa-plus"></i> Adicionar
-            </button>
+            <div class="logo-area">
+                <button class="btn-primary-add ad-pop">
+                    <i class="fa-solid fa-plus"></i> Adicionar
+                </button>
+            </div>
         </div>
 
         <nav>
-            <ul>
-                <li><i class="fa-solid fa-cube"></i> <a href="../index.html">Meus Produtos</a></li>
-                <li class="active"><i class="fa-regular fa-user"></i> <a href="perfil.html">Perfil</a></li>
-                <li><i class="fa-solid fa-chart-pie"></i> <a href="#">Visão Geral</a></li>
-                <li><i class="fa-regular fa-bell"></i> <a href="#">Alertas</a></li>
-                <li><i class="fa-solid fa-gear"></i> <a href="#">Ajustes</a></li>
-            </ul>
+                <ul>
+                    <li class="active" style="padding: 0;">
+                        <a href="../index.html">
+                            <i class="fa-solid fa-cube"></i>
+                            <span>Meus Produtos</span>
+                        </a>
+                    </li>
+
+                    <li style="padding: 2px;">
+                        <a href="perfil.html">
+                            <i class="fa-regular fa-user"></i>
+                            <span>Perfil</span>
+                        </a>
+                    </li>
+
+                    <li style="padding: 2px;">
+                        <a href="">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            <span>Visão Geral</span>
+                        </a>
+                    </li>
+
+                    <li style="padding: 2px;">
+                        <a href="">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Ajustes</span>
+                        </a>
+                    </li>
+
+                </ul>
         </nav>
     </aside>
 
@@ -136,7 +160,7 @@
                     </div>
 
                     <button class="w-full bg-transparent border border-gray-600 hover:border-gray-400 text-gray-300 rounded-lg py-2 text-sm transition">
-                        <a href="#">Alterar senha</a>
+                        <a href="recuperar.html">Alterar senha</a>
                     </button>
                 </div>
 

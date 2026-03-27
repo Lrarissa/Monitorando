@@ -46,6 +46,24 @@ body {
     gap: 10px;
 }
 
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px; 
+    width: 100%;
+}
+
+.sidebar nav ul li {
+    margin: 1px;
+    padding: 0;
+    cursor: pointer;
+    list-style: none;
+}
+
+
 .sidebar nav ul {
     list-style: none;
 }

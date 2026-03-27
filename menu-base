@@ -72,18 +72,41 @@ body {
 
 <aside class="sidebar">
     <div class="logo-area">
-        <button class="btn-primary-add">
+        <button class="btn-primary-add ad-pop">
             <i class="fa-solid fa-plus"></i> Adicionar
         </button>
     </div>
 
     <nav>
         <ul>
-            <li class="active"><i class="fa-solid fa-cube"></i> Meus Produtos</li>
-            <li><i class="fa-regular fa-user"></i> Perfil</li>
-            <li><i class="fa-solid fa-chart-pie"></i> Visão Geral</li>
-            <li><i class="fa-regular fa-bell"></i> Alertas</li>
-            <li><i class="fa-solid fa-gear"></i> Ajustes</li>
+            <li class="active" style="padding: 0;">
+                <a href="index.html">
+                    <i class="fa-solid fa-cube"></i>
+                    <span>Meus Produtos</span>
+                </a>
+            </li>
+
+            <li style="padding: 2px;">
+                <a href="HTML/perfil.html">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Perfil</span>
+                </a>
+            </li>
+
+            <li style="padding: 2px;">
+                <a href="">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Visão Geral</span>
+                </a>
+            </li>
+
+            <li style="padding: 2px;">
+                <a href="">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Ajustes</span>
+                </a>
+            </li>
+
         </ul>
     </nav>
 </aside>
