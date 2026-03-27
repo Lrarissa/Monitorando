@@ -1,75 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-body {
-    background-color: #000; 
-    color: #fff;
-    height: 100vh;
-    overflow: hidden; 
-}
-
-.dashboard-container {
-    display: flex;
-    height: 100%;
-}
-
- /*Menu a esquerda*/
-
-.sidebar {
-    width: 250px;
-    background-color: #121212; 
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid #333;
-}
-
-.btn-primary-add {
-    width: 100%;
-    background: linear-gradient(90deg, #a100ffff, #ff71ce);
-    border: none;
-    padding: 12px;
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 16px;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.sidebar nav ul {
-    list-style: none;
-}
-
-.sidebar nav ul li {
-    padding: 15px 10px;
-    cursor: pointer;
-    color: #aaa;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.sidebar nav ul li:hover, .sidebar nav ul li.active {
-    background-color: #1f1f1f;
-    color: #fff;
-    border-radius: 8px;
-}
-
-/* --- menu fim --- */
-
-
-<!--
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -77,11 +5,11 @@ body {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../CSS/style-ajuste.css">
     <title>configurações | Monitorando</title>
 </head>
 <body>
-    <body>
 
     <div class="dashboard-container">
         <aside class="sidebar">
@@ -93,7 +21,7 @@ body {
 
             <nav>
                 <ul>
-                    <li style="padding: 0;">
+                    <li style="padding: 2px;">
                         <a href="../index.html">
                             <i class="fa-solid fa-cube"></i>
                             <span>Meus Produtos</span>
@@ -123,9 +51,54 @@ body {
                 </ul>
             </nav>
         </aside>
+        <main>
+            <section>
 
-        </div>
+                <h1>Preferência de Monitoramento</h1>
+                <br>
+                <div>
+                    <label for="moeda">Moeda Padrão</label>
+                    <select name="moeda" id="moeda">
+                        <option value="real">R$</option>
+                        <option value="dolar">USD</option>
+                        <option value="euro">EUR</option>
+                    </select>
+                </div>
+
+                <div>
+                    <p>FAZER A FREQUENCIA DE ATUALIZAÇÂO DEPOIS. NAO ESQUECE LARISSA</p>
+                </div>
+            </section>
+
+            <div>
+                <h1>Assinatura e Pagamento</h1>
+                <p>Plano: PLUS</p>
+
+                <a href="#"><button type="button">Gerenciar assinatura</button></a>
+            </div>
+
+            <div>
+                <h1>Sobre & Suporte</h1>
+
+                <button type="button">Central de Ajuda</button>
+
+                <a href=""><button type="button">Política de Privacidade</button></a>
+
+                <a href=""><button type="button">Termos de Uso</button></a>
+            </div>
+
+            <div>
+                <h1>Zona de Perigo</h1>
+
+                <p>Sentiremos sua falta! Mas, se decidir seguir em frente, saiba que a exclusão apagará permanentemente todos os seus dados, históricos de monitoramento e informações de pagamento. Esta ação não pode ser desfeita.</p>
+
+                <hr class="border-gray-800">
+
+                <button type="button" class="btn-excluir" onclick="confirmarExclusao()">
+                    Excluir Conta
+                </button>
+            </div>
+        </main>
+    </div>
 </body>
-</html> 
-
--->
+</html>
