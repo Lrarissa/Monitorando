@@ -16,9 +16,11 @@
 
     <aside class="sidebar bg-[#121212] z-20">
             <div class="logo-area">
-                <button class="btn-primary-add ad-pop">
-                    <i class="fa-solid fa-plus"></i> Adicionar
-                </button>
+                <a href="../index.html">
+                    <button class="btn-primary-add ad-pop">
+                        <i class="fa-solid fa-plus"></i> Adicionar
+                    </button>
+                </a>
             </div>
         </div>
 
@@ -35,20 +37,6 @@
                         <a href="perfil.html">
                             <i class="fa-regular fa-user"></i>
                             <span>Perfil</span>
-                        </a>
-                    </li>
-
-                    <li style="padding: 2px;">
-                        <a href="">
-                            <i class="fa-solid fa-chart-pie"></i>
-                            <span>Visão Geral</span>
-                        </a>
-                    </li>
-
-                    <li style="padding: 2px;">
-                        <a href="ajuste.html">
-                            <i class="fa-solid fa-gear"></i>
-                            <span>Ajustes</span>
                         </a>
                     </li>
 
@@ -202,32 +190,40 @@
                     </div>
                 </div>
 
-                <!-- PLANO -->
-                <div class="bg-panel rounded-3xl p-6 flex flex-col items-center justify-between relative overflow-hidden">
-                    <h2 class="text-sm text-gray-400 absolute top-6 left-6">
-                        Meu Plano
-                    </h2>
+                <!-- Suporte -->
+                <div class="supor">
+                    <div class="bg-panel rounded-3xl p-6 flex flex-col items-center justify-between relative overflow-hidden">
+                        <h2 class="text-sm absolute top-6 left-6">
+                            Sobre & Suporte
+                        </h2>
 
-                    <div class="flex flex-col items-center mt-6">
-                        <div class="text-neon-pink neon-glow mb-2 relative">
-                            <i data-lucide="crown" class="w-12 h-12"></i>
-                            <span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[10px] font-bold mt-1 text-white">
-                                PLUS
-                            </span>
+                        <div class="flex flex-col items-center mt-6 ">
+                            <a href="ajuda.html" target="_blank">
+                            <button type="button" class="w-72 bg-transparent border border-gray-600 hover:border-gray-400  rounded-lg p-2 text-sm transition">
+                                    Central de Ajuda
+                                </button>
+                            </a>
                         </div>
 
-                        <p class="text-xl">
-                            Você é <span class="text-neon-pink font-semibold">PLUS</span>
-                        </p>
+                        <div class="flex items-center mt-6 " >
+                            <a href="privacidade.html"  target="_blank">
+                            <button type="button" class="w-full border border-gray-600 hover:border-gray-400 rounded-lg py-2 text-sm transition p-1">
+                                    Política de Privacidade
+                                </button>
 
-                        <p class="text-xs text-gray-500 mt-1">
-                            Monitoramento ilimitado ativo
-                        </p>
+                            <a href="termos.html"  target="_blank">
+                            <button type="button" class="w-full border border-gray-600 hover:border-gray-400  rounded-lg py-2 text-sm transition m-2 p-2">
+                                    Termos de Uso
+                                </button>
+                            </a>
+                        </div>
+                        <hr class="border-gray-800">
+
+                        <button class="w-full bg-transparent border border-red-600 hover:bg-red-600 hover:text-white text-red-500 rounded-lg py-2 text-sm transition mt-6">
+                            Excluir Conta
+                        </button>
+                    
                     </div>
-
-                    <button class="w-full bg-transparent border border-gray-600 hover:border-gray-400 text-gray-300 rounded-lg py-2 text-sm transition mt-6">
-                        Gerenciar assinatura
-                    </button>
                 </div>
 
             </div>

@@ -15,9 +15,11 @@
     <div class="dashboard-container">
         <aside class="sidebar">
             <div class="logo-area">
-                <button class="btn-primary-add ad-pop">
-                    <i class="fa-solid fa-plus"></i> Adicionar
-                </button>
+                <a href="HTML/index.html">
+                    <button class="btn-primary-add ad-pop">
+                        <i class="fa-solid fa-plus"></i> Fazer login
+                    </button>
+                </a>
             </div>
 
             <nav>
@@ -36,19 +38,6 @@
                         </a>
                     </li>
 
-                    <li style="padding: 2px;">
-                        <a href="">
-                            <i class="fa-solid fa-chart-pie"></i>
-                            <span>Visão Geral</span>
-                        </a>
-                    </li>
-
-                    <li style="padding: 2px;">
-                        <a href="HTML/ajuste.html">
-                            <i class="fa-solid fa-gear"></i>
-                            <span>Ajustes</span>
-                        </a>
-                    </li>
 
                 </ul>
             </nav>
@@ -177,7 +166,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <button type="submit" class="btn-modal-enviar">
                     Adicionar produto
                 </button>
@@ -235,6 +224,26 @@
             }
         });v
             
+
+        /*Função de excluir e editar produto*/
+
+       function excluirProduto(idDoProduto) {
+            if(confirm("Tem certeza que deseja excluir este produto?")) {
+                console.log("Produto " + idDoProduto + "excluído com sucesso!");
+        }
+        }
+
+        function editarProduto(idDoProduto) {
+            console.log("Preparando formulário para editar o produto: " + idDoProduto);
+            }function excluirProduto(idDoProduto) {
+                if(confirm("Tem certeza que deseja excluir este produto?")) {
+                    console.log("Produto " + idDoProduto + " excluído com sucesso!");
+            }
+        }
+
+        function editarProduto(idDoProduto) {
+            console.log("Preparando formulário para editar o produto: " + idDoProduto);
+        } 
     </script>
 
 </body>

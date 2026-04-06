@@ -136,9 +136,11 @@ header {
 
 
 .products-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+    justify-content: center;
+    margin-top: 118px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);;
+    gap: 20px;
 
 }
 
