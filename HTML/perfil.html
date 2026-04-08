@@ -231,124 +231,83 @@
     </main>
 
     <script>
-
-        document.getElementById('form-adicionar-produto').addEventListener('submit', function(evento) {
-    evento.preventDefault(); 
-    
-    const nomeInput = document.querySelector('input[name="nome_produto"]').value;
-    const precoInput = document.getElementById('preco').value;
-    const metaInput = document.getElementById('meta').value;
-
-    if(!nomeInput) {
-        alert("Por favor, dê um nome ao produto!");
-        return;
-    }
-
-    meusProdutos.push({
-        id: Date.now(),
-        nome: nomeInput,
-        precoAtual: precoInput || "0,00",
-        meta: metaInput || "0,00",
-        imagem: imagemSelecionada 
-    });
-
-    this.reset();
-    
-    imagemSelecionada = "";
-    labelFoto.style.backgroundImage = 'none';
-    labelFoto.style.borderStyle = 'dashed'; 
-    labelFoto.querySelector('i').style.display = 'block';
-    labelFoto.querySelector('.txt-foto').style.display = 'block';
-    labelFoto.querySelector('.txt-opcional').style.display = 'block';
-
-    modalProduto.classList.add('hidden');
-    renderizarProdutos();
-});
-
-function excluirProduto(idParaExcluir) {
-    if(confirm("Tem certeza que deseja excluir este produto da sua lista?")) {
-        meusProdutos = meusProdutos.filter(p => p.id !== idParaExcluir);
-        renderizarProdutos();
-    }
-}
-
-function editarProduto(id) {
-    alert("O botão de editar está funcionando! Produto ID: " + id + ". A lógica de abrir o modal preenchido vem na próxima etapa.");
-}
-
-renderizarProdutos()
-
-
         lucide.createIcons();
 
-        const toggles = document.querySelectorAll('.switch input');
+const imgPerfil = document.getElementById('imagem-perfil');
+const uploadFoto = document.getElementById('upload-foto');
 
-        toggles.forEach((toggle, index) => {
-            if (localStorage.getItem("notificacao" + index) === "on") {
-                toggle.checked = true;
-            }
+const textoNome = document.getElementById('texto-nome');
+const inputNome = document.getElementById('input-nome');
+const btnEditarNome = document.getElementById('btn-editar-nome');
+const btnSalvarNome = document.getElementById('btn-salvar-nome');
 
-            toggle.addEventListener("change", () => {
-                if (toggle.checked) {
-                    localStorage.setItem("notificacao" + index, "on");
-                } else {
-                    localStorage.setItem("notificacao" + index, "off");
-                }
-            });
-        });
+const notificationSwitches = document.querySelectorAll('.switch input');
 
-        const inputUploadFoto = document.getElementById('upload-foto');
-        const imagemPerfil = document.getElementById('imagem-perfil');
+window.addEventListener('DOMContentLoaded', () => {
+    const nomeSalvo = localStorage.getItem('perfil-nome');
+    if (nomeSalvo) {
+        textoNome.textContent = nomeSalvo;
+        inputNome.value = nomeSalvo;
+    }
 
-        inputUploadFoto.addEventListener('change', function(event) {
-            const arquivoSelecionado = event.target.files[0];
+    const fotoSalva = localStorage.getItem('perfil-foto');
+    if (fotoSalva) {
+        imgPerfil.src = fotoSalva;
+    }
 
-            if (arquivoSelecionado) {
-                const leitor = new FileReader();
+    const prefsSalvas = JSON.parse(localStorage.getItem('perfil-notificacoes')) || [false, false, false];
+    notificationSwitches.forEach((checkbox, index) => {
+        checkbox.checked = prefsSalvas[index];
+    });
+});
 
-                leitor.onload = function(e) {
-                    imagemPerfil.src = e.target.result;
-                }
-                leitor.readAsDataURL(arquivoSelecionado);
-            }
-        });
+btnEditarNome.addEventListener('click', () => {
+    textoNome.classList.add('hidden');
+    btnEditarNome.classList.add('hidden');
+    
+    inputNome.classList.remove('hidden');
+    btnSalvarNome.classList.remove('hidden');
+    inputNome.focus();
+});
 
-        const textoNome = document.getElementById('texto-nome');
-        const inputNome = document.getElementById('input-nome');
-        const btnEditarNome = document.getElementById('btn-editar-nome');
-        const btnSalvarNome = document.getElementById('btn-salvar-nome');
+btnSalvarNome.addEventListener('click', () => {
+    const novoNome = inputNome.value.trim() || "S/N";
+    
+    localStorage.setItem('perfil-nome', novoNome);
+    
+    textoNome.textContent = novoNome;
+    
+    inputNome.classList.add('hidden');
+    btnSalvarNome.classList.add('hidden');
+    textoNome.classList.remove('hidden');
+    btnEditarNome.classList.remove('hidden');
+});
 
-        function ativarEdicao() {
-            textoNome.classList.add('hidden');
-            inputNome.classList.remove('hidden');
-            btnEditarNome.classList.add('hidden');
-            btnSalvarNome.classList.remove('hidden');
-            
-            inputNome.value = textoNome.innerText;
-            inputNome.focus();
+inputNome.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') btnSalvarNome.click();
+});
+
+uploadFoto.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const base64Image = event.target.result;
+            imgPerfil.src = base64Image;
+            localStorage.setItem('perfil-foto', base64Image);
         };
+        reader.readAsDataURL(file);
+    }
+});
 
-        function salvarEdicao() {
-            const novoNomeDigitado = inputNome.value.trim();
-
-            if (novoNomeDigitado !== '') {
-                textoNome.innerText = novoNomeDigitado;
-            }
-
-            textoNome.classList.remove('hidden');
-            inputNome.classList.add('hidden');
-            btnEditarNome.classList.remove('hidden');
-            btnSalvarNome.classList.add('hidden');
-        }
-
-        btnEditarNome.addEventListener('click', ativarEdicao);
-        btnSalvarNome.addEventListener('click', salvarEdicao);
-
-        inputNome.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                salvarEdicao();
-            }
-        });
+notificationSwitches.forEach((checkbox) => {
+    checkbox.addEventListener('change', () => {
+        const estadoNotificacoes = Array.from(notificationSwitches).map(cb => cb.checked);
+        localStorage.setItem('perfil-notificacoes', JSON.stringify(estadoNotificacoes));
+        console.log("Preferências atualizadas!");
+    });
+});
+  
     </script>
 </body>
 </html>
