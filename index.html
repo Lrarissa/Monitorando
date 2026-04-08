@@ -15,8 +15,8 @@
     <div class="dashboard-container">
         <aside class="sidebar">
             <div class="logo-area">
-                <a href="HTML/index.html">
-                    <button class="btn-primary-add ad-pop">
+                <a href="HTML/login.html">
+                    <button class="btn-primary-add">
                         <i class="fa-solid fa-plus"></i> Fazer login
                     </button>
                 </a>
@@ -177,74 +177,145 @@
 </div>
     <script src="../JS/dashboard.js"></script>
 
-    <script>
-            /*POP-UP ADICIONAR PRODUTO*/
-            lucide.createIcons();
+<script>
+    lucide.createIcons();
 
-            const botoesAbrir = document.querySelectorAll('.ad-pop');
-            const modalProduto = document.getElementById('modal-produto');
-            const btnFecharModal = document.getElementById('btn-fechar-modal');
+    let meusProdutos = [];
+    let imagemSelecionada = "";
 
-            botoesAbrir.forEach(botao => {
-                botao.addEventListener('click', () => {
-                    modalProduto.classList.remove('hidden');
-                });
-            });
+    const modalProduto = document.getElementById('modal-produto');
+    const btnFecharModal = document.getElementById('btn-fechar-modal');
+    const inputUploadImg = document.getElementById('upload-img');
+    const labelFoto = document.querySelector('.modal-foto');
 
-            btnFecharModal.addEventListener('click', () => {
-                modalProduto.classList.add('hidden');
-            });
+    function abrirModal() {
+        modalProduto.classList.remove('hidden');
+    }
 
-            function formatarMoeda(i) {
-            var v = i.value.replace(/\D/g,'');
-            v = (v/100).toFixed(2) + '';
-            v = v.replace(".", ",");
-            v = v.replace(/(\d)(\d{3})(\d{3})/g, "$1.$2.$3");
-            v = v.replace(/(\d)(\d{3})/g, "$1.$2");
-            i.value = v;
+    document.querySelectorAll('.ad-pop').forEach(botao => {
+        botao.addEventListener('click', (e) => {
+            e.preventDefault();
+            abrirModal();
+        });
+    });
+
+    btnFecharModal.addEventListener('click', () => {
+        modalProduto.classList.add('hidden');
+    });
+
+    inputUploadImg.addEventListener('change', function(e) {
+        if (e.target.files[0]) {
+            const leitor = new FileReader();
+            leitor.onload = function(evento) {
+                imagemSelecionada = evento.target.result;
+                
+                labelFoto.style.backgroundImage = `url('${imagemSelecionada}')`;
+                labelFoto.style.backgroundSize = 'cover';
+                labelFoto.style.backgroundPosition = 'center';
+                labelFoto.style.borderStyle = 'none';
+                
+                labelFoto.querySelector('i').style.display = 'none';
+                labelFoto.querySelector('.txt-foto').style.display = 'none';
+                labelFoto.querySelector('.txt-opcional').style.display = 'none';
             }
-
-            const inputUploadImg = document.getElementById('upload-img');
-        const labelFoto = document.querySelector('.modal-foto');
-
-        inputUploadImg.addEventListener('change', function(e) {
-            if (e.target.files[0]) {
-                const leitor = new FileReader();
-                leitor.onload = function(evento) {
-                    labelFoto.style.backgroundImage = `url('${evento.target.result}')`;
-                    labelFoto.style.backgroundSize = 'cover';
-                    labelFoto.style.backgroundPosition = 'center';
-                    labelFoto.style.borderStyle = 'none';
-                    
-                    labelFoto.querySelector('i').style.display = 'none';
-                    labelFoto.querySelector('.txt-foto').style.display = 'none';
-                    labelFoto.querySelector('.txt-opcional').style.display = 'none';
-                }
-                leitor.readAsDataURL(e.target.files[0]);
-            }
-        });v
-            
-
-        /*Função de excluir e editar produto*/
-
-       function excluirProduto(idDoProduto) {
-            if(confirm("Tem certeza que deseja excluir este produto?")) {
-                console.log("Produto " + idDoProduto + "excluído com sucesso!");
+            leitor.readAsDataURL(e.target.files[0]);
         }
+    });
+
+    function formatarMoeda(i) {
+        var v = i.value.replace(/\D/g,'');
+        v = (v/100).toFixed(2) + '';
+        v = v.replace(".", ",");
+        v = v.replace(/(\d)(\d{3})(\d{3})/g, "$1.$2.$3");
+        v = v.replace(/(\d)(\d{3})/g, "$1.$2");
+        i.value = v;
+    }
+
+    function renderizarProdutos() {
+        const grid = document.getElementById('productsGrid');
+        grid.innerHTML = "";
+
+        meusProdutos.forEach(produto => {
+            let fundoImagem = produto.imagem 
+                ? `background-image: url('${produto.imagem}'); background-size: cover; background-position: center;` 
+                : "";
+
+            grid.innerHTML += `
+                <div class="product-card">
+                    <div class="card-image-placeholder" style="${fundoImagem}"></div>
+                    <div class="card-info">
+                        <h3 style="font-size: 16px; margin-bottom: 5px; text-align: center;">${produto.nome}</h3>
+                        <p class="meta-text" style="color: #fff;">Preço: R$ ${produto.precoAtual}</p>
+                        <p class="meta-text" style="color: #A855F7; font-weight: bold;">Meta: R$ ${produto.meta}</p>
+                        
+                        <div style="display: flex; gap: 15px; margin-top: 10px;">
+                            <button onclick="excluirProduto(${produto.id})" style="background: none; border: none; color: #E83D84; cursor: pointer; font-size: 16px;" title="Excluir">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        const totalDeCardsDesejados = 8; 
+        const cardsParaCompletar = totalDeCardsDesejados - meusProdutos.length;
+
+        for (let i = 0; i < cardsParaCompletar; i++) {
+            grid.innerHTML += `
+                <div class="product-card empty-card">
+                    <div class="card-image-placeholder"></div>
+                    <div class="card-info">
+                        <button class="btn-card-add ad-pop" onclick="abrirModal()">Adicionar produto</button>
+                        <p class="meta-text">Meta: R$0.00,00</p>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    document.getElementById('form-adicionar-produto').addEventListener('submit', function(evento) {
+        evento.preventDefault(); 
+        
+        const nomeInput = document.querySelector('input[name="nome_produto"]').value;
+        const precoInput = document.getElementById('preco').value;
+        const metaInput = document.getElementById('meta').value;
+
+        if(!nomeInput) {
+            alert("Por favor, dê um nome ao produto!");
+            return;
         }
 
-        function editarProduto(idDoProduto) {
-            console.log("Preparando formulário para editar o produto: " + idDoProduto);
-            }function excluirProduto(idDoProduto) {
-                if(confirm("Tem certeza que deseja excluir este produto?")) {
-                    console.log("Produto " + idDoProduto + " excluído com sucesso!");
-            }
+        meusProdutos.push({
+            id: Date.now(),
+            nome: nomeInput,
+            precoAtual: precoInput || "0,00",
+            meta: metaInput || "0,00",
+            imagem: imagemSelecionada 
+        });
+
+        this.reset();
+        
+        imagemSelecionada = "";
+        labelFoto.style.backgroundImage = 'none';
+        labelFoto.style.borderStyle = 'dashed'; 
+        labelFoto.querySelector('i').style.display = 'block';
+        labelFoto.querySelector('.txt-foto').style.display = 'block';
+        labelFoto.querySelector('.txt-opcional').style.display = 'block';
+
+        modalProduto.classList.add('hidden');
+        renderizarProdutos();
+    });
+
+    function excluirProduto(idParaExcluir) {
+        if(confirm("Tem certeza que deseja excluir este produto da sua lista?")) {
+            meusProdutos = meusProdutos.filter(p => p.id !== idParaExcluir);
+            renderizarProdutos();
         }
+    }
 
-        function editarProduto(idDoProduto) {
-            console.log("Preparando formulário para editar o produto: " + idDoProduto);
-        } 
-    </script>
+    renderizarProdutos();
 
+</script>
 </body>
 </html>

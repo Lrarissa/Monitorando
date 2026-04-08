@@ -231,6 +231,54 @@
     </main>
 
     <script>
+
+        document.getElementById('form-adicionar-produto').addEventListener('submit', function(evento) {
+    evento.preventDefault(); 
+    
+    const nomeInput = document.querySelector('input[name="nome_produto"]').value;
+    const precoInput = document.getElementById('preco').value;
+    const metaInput = document.getElementById('meta').value;
+
+    if(!nomeInput) {
+        alert("Por favor, dê um nome ao produto!");
+        return;
+    }
+
+    meusProdutos.push({
+        id: Date.now(),
+        nome: nomeInput,
+        precoAtual: precoInput || "0,00",
+        meta: metaInput || "0,00",
+        imagem: imagemSelecionada 
+    });
+
+    this.reset();
+    
+    imagemSelecionada = "";
+    labelFoto.style.backgroundImage = 'none';
+    labelFoto.style.borderStyle = 'dashed'; 
+    labelFoto.querySelector('i').style.display = 'block';
+    labelFoto.querySelector('.txt-foto').style.display = 'block';
+    labelFoto.querySelector('.txt-opcional').style.display = 'block';
+
+    modalProduto.classList.add('hidden');
+    renderizarProdutos();
+});
+
+function excluirProduto(idParaExcluir) {
+    if(confirm("Tem certeza que deseja excluir este produto da sua lista?")) {
+        meusProdutos = meusProdutos.filter(p => p.id !== idParaExcluir);
+        renderizarProdutos();
+    }
+}
+
+function editarProduto(id) {
+    alert("O botão de editar está funcionando! Produto ID: " + id + ". A lógica de abrir o modal preenchido vem na próxima etapa.");
+}
+
+renderizarProdutos()
+
+
         lucide.createIcons();
 
         const toggles = document.querySelectorAll('.switch input');
